@@ -6,10 +6,9 @@ Este é um projeto básico utilizando NestJS, Prisma, validação de entrada e a
 
 - [Instalação](#instalação)
 - [Configuração](#configuração)
-- [Uso](#uso)
-- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Executar](#executar)
 - [Endpoints](#endpoints)
-- [Licença](#licença)
+- [Autenticação](#autenticação)
 
 ## Instalação
 
@@ -41,9 +40,9 @@ Iniciar a aplicação:
 npm run start:dev
 ```
 
-## Testes da aplicação
+## Endpoints
 
-A aplicação pode ser testada a partir do: api.http
+Os endpoints podem ser acessados a partir do: api.http
 (Atravez da extenção REST Client do vscode)
 
 ## Autenticação
