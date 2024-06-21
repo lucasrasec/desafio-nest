@@ -22,33 +22,33 @@ export class EventsController {
   constructor(private readonly eventsService: EventsService) {}
 
   @Post()
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   @UsePipes(new ValidationPipe({ errorHttpStatusCode: 422 }))
   create(@Body() createEventDto: CreateEventDto) {
     return this.eventsService.create(createEventDto);
   }
 
   @Get()
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   findAll() {
     return this.eventsService.findAll();
   }
 
   @Get(':id')
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   findOne(@Param('id') id: string) {
     return this.eventsService.findOne(id);
   }
 
   @Patch(':id')
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   @UsePipes(new ValidationPipe({ errorHttpStatusCode: 422 }))
   update(@Param('id') id: string, @Body() updateEventDto: UpdateEventDto) {
     return this.eventsService.update(id, updateEventDto);
   }
 
   @HttpCode(204)
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.eventsService.remove(id);

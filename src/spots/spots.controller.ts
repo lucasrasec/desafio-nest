@@ -8,19 +8,17 @@ import {
   Delete,
   UsePipes,
   ValidationPipe,
-  UseGuards,
 } from '@nestjs/common';
 import { UpdateSpotDto } from './dto/update-spot.dto';
 import { SpotsService } from './spots.service';
 import { CreateSpotDto } from './dto/create-spot.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('events/:eventId/spots')
 export class SpotsController {
   constructor(private readonly spotsService: SpotsService) {}
 
   @Post()
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   @UsePipes(new ValidationPipe({ errorHttpStatusCode: 422 }))
   create(
     @Body() createSpotDto: CreateSpotDto,
@@ -30,19 +28,19 @@ export class SpotsController {
   }
 
   @Get()
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   findAll(@Param('eventId') eventId: string) {
     return this.spotsService.findAll(eventId);
   }
 
   @Get(':spotId')
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   findOne(@Param('id') spotId: string, @Param('eventId') eventId: string) {
     return this.spotsService.findOne(eventId, spotId);
   }
 
   @Patch(':spotId')
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   @UsePipes(new ValidationPipe({ errorHttpStatusCode: 422 }))
   update(
     @Param('id') spotId: string,
@@ -53,7 +51,7 @@ export class SpotsController {
   }
 
   @Delete(':spotId')
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   remove(@Param('id') spotId: string, @Param('eventId') eventId: string) {
     return this.spotsService.remove(eventId, spotId);
   }
